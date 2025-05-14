@@ -3,11 +3,26 @@
     "description": "Mute ads",
     "version": "1.0",
     "manifest_version": 3,
+    "host_permissions": [
+        "http://*/*",
+        "https://*/*"
+    ],
     "content_scripts": [
         {
-            "matches": ["<all_urls>"],
-            "js": ["Content.js"]
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "Content.js"
+            ]
         }
     ],
-    "permissions": ["storage, activeTab"]
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "scripting"
+    ]
 }
